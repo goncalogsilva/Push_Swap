@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
+/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:44:33 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/03/09 15:01:34 by goncalogsil      ###   ########.fr       */
+/*   Updated: 2023/03/17 16:56:27 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,4 +155,3 @@ int	ft_lstsize(t_list *lst)
 	cnt++;
 	return (cnt);
 }
-
