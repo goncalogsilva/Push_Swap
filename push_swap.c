@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:39 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/03/17 17:47:02 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:06:25 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	main(int ac, char **av)
 	b = NULL;
 	printf("\nStack A\n\n");
 	print_list(a);
-	r_rotate(&a);
-	printf("\nAfter Reverse Rotate\n\n");
+	tiny_sort(&a);
+	printf("\nStack A\n\n");
 	print_list(a);
+	printf("\nStack B\n\n");
 	print_list(b);
 	return (0);
 }

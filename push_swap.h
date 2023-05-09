@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:29 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/03/17 17:14:54 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:05:40 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	swap(t_list **stack);
 void	push(t_list **stack_s, t_list **stack_d);
 void	rotate(t_list **stack);
 void	r_rotate(t_list **stack);
+
+void    tiny_sort(t_list **stack);
+//void    master_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

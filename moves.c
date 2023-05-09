@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:31:13 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/03/17 17:18:19 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:04:48 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void	swap(t_list **stack)
 		*stack = y;
 	x->next = y->next;
 	y->next = x;
+
+	printf("SWAP\n");
 }
 
 void	push(t_list **stack_s, t_list **stack_d)
@@ -55,6 +57,8 @@ void	push(t_list **stack_s, t_list **stack_d)
 		s = s->next;
 	if (s->next != NULL)
 		s->next = NULL;
+	
+	printf("PUSH\n");
 }
 
 void	rotate(t_list **stack)
@@ -76,6 +80,8 @@ void	rotate(t_list **stack)
 	}
 	s->next = NULL;
 	*stack = last;
+
+	printf("ROTATE\n");
 }
 
 void	r_rotate(t_list **stack)
@@ -88,4 +94,6 @@ void	r_rotate(t_list **stack)
 	last->next = s;
 	*stack = s->next;
 	s->next = NULL;
+
+	printf("REVERSE ROTATE\n");
 }
