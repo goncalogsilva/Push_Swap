@@ -6,7 +6,7 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:45 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/03/17 16:51:46 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:28:02 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,28 @@ t_list	*stack_init(int n, char **args)
 	{
 		arg[i] = ft_atoi(args[n - 1]);
 		new = ft_lstnew(&arg[i]);
-		ft_lstadd_back(&head, new);
+		ft_lstadd_front(&head, new);
 		n--;
 		i++;
 	}
 	return (head);
+}
+
+int	check_mean(t_list *stack)
+{
+	int		i;
+	int		cnt;
+	t_list	*aux;
+
+	i = 0;
+	cnt = 0;
+	aux = stack;
+	while (aux != NULL)
+	{
+		i += *(int *)(aux->content);
+		aux = aux->next;
+		cnt++;
+	}
+	i = i / cnt;
+	return (i);
 }
