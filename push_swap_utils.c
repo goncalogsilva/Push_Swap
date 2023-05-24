@@ -6,7 +6,7 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:45 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/10 15:28:02 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:08:59 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_list	*stack_init(int n, char **args)
 	int		*arg;
 	int		i;
 
-	arg = (int *) malloc(sizeof(int) * (n - 1));
 	if (!arg)
 		return (NULL);
 	arg[0] = ft_atoi(args[n - 1]);
@@ -57,9 +56,9 @@ t_list	*stack_init(int n, char **args)
 
 int	check_mean(t_list *stack)
 {
-	int		i;
-	int		cnt;
-	t_list	*aux;
+	long int	i;
+	int			cnt;
+	t_list		*aux;
 
 	i = 0;
 	cnt = 0;
