@@ -6,7 +6,7 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:55:43 by gode-jes          #+#    #+#             */
-/*   Updated: 2023/05/24 12:07:41 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:32:01 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_list
 {
 	int				*content;
 	int				bf;
+	int				cost;
 	struct s_list	*next;
 }	t_list;
 

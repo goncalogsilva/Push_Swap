@@ -6,7 +6,7 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:45 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/24 12:08:59 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:43:38 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_list	*stack_init(int n, char **args)
 	int		*arg;
 	int		i;
 
+	arg = (int *) malloc((n - 1) * sizeof(int));
 	if (!arg)
 		return (NULL);
 	arg[0] = ft_atoi(args[n - 1]);

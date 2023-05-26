@@ -6,7 +6,7 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:39 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/10 15:43:32 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/25 18:53:27 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 	}
 	a = stack_init(ac, av);
 	b = NULL;
-	sort_plus(&a, &b);
+	final_sort(&a, &b);
 	//ft_printf("MEDIA: %d\n", check_mean(a));
 	//printf("\nStack A\n\n");
 	//print_list(a);

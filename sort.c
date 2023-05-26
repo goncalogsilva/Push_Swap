@@ -6,11 +6,17 @@
 /*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:44:34 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/24 14:05:19 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/05/25 19:21:25 by gode-jes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort2(t_list **stack)
+{
+	if (*((*stack)->next->content) < *((*stack)->content))
+		sa(stack);
+}
 
 void	sort3(t_list **stack)
 {
@@ -25,70 +31,67 @@ void	sort3(t_list **stack)
 	}
 }
 
-int	best_friend(t_list **a, int cont)
-{
-	long int	dif;
-	long int	tmp;
-	int			bf;
-	t_list	*st_a;
-	
-	st_a = *a;
-	dif = LONG_MAX;
-	
-	while (st_a)
-	{
-		tmp = (long int) *((st_a)->content) - cont;
-		if (tmp > 0 && tmp < dif)
-		{
-			dif = tmp;
-			bf = cont;
-		}
-		st_a = st_a->next;
-	}
-	return (bf);
-}
-
-int	calc_cost(t_list **a, t_list **b, int na, int nb)
-{
-	t_list	*st_a;
-	t_list	*st_b;
-	int		cost;
-
-	st_a = *a;
-	st_b = *b;
-	cost = 0;
-	
-	while (st_a)
-	{
-		if (*((st_a)->content) == na)
-			return;
-		
-	}
-}
-
-void	sort_plus(t_list **a, t_list **b)
+void	sort_init(t_list **a, t_list **b)
 {
 	int		med;
 	t_list	*st_a;
-	t_list	*st_b;
 
 	st_a = *a;
-	st_b = *b;
-	
-	while (ft_lstsize(st_a) > 3)
+	while (ft_lstsize(*a) > 3)
 	{
-		//ft_printf("SIZE: %d\n", ft_lstsize(*a));
 		med = check_mean(st_a);
-		//ft_printf("MEDIA: %d\n", med);
 		if (*((st_a)->content) <= med)
 			pb(a, b);
 		else
 			ra(a);
 	}
-	if (ft_lstsize(st_a) == 3)
+	if (ft_lstsize(*a) == 3)
 		sort3(a);
+}
+
+void	sort_plus(t_list **a, t_list **b)
+{
+	t_list		*st_b;
+	long int	cost;
+	int			pos_a;
+	int			pos_b;
+
+	st_b = *b;
+	cost = LONG_MAX;
 	while (st_b)
 	{
-		st_b->bf = best_friend(st_a, *((st_b)->content));
+		st_b->bf = best_friend(a, *(st_b->content));
+		if (calc_cost(a, b, st_b->bf, *(st_b->content)) < cost)
+		{
+			cost = calc_cost(a, b, st_b->bf, *(st_b->content));
+			pos_a = check_position(a, st_b->bf);
+			pos_b = check_position(b, *(st_b->content));
+		}
+		st_b = st_b->next;
+	}
+	printf("\nStack A\n\n");
+	print_list(*a);
+	printf("\nStack B\n\n");
+	print_list(*b);
+	printf("POS A: %d\n", pos_a);
+	printf("POS B: %d\n", pos_b);
+	put_a_up(a, pos_a);
+	put_b_up(b, pos_b);
+	printf("\nStack A\n\n");
+	print_list(*a);
+	printf("\nStack B\n\n");
+	print_list(*b);
+	pa(a, b);
+}
+
+void	final_sort(t_list **a, t_list **b)
+{
+	if (!check_sort(a))
+	{
+		sort_init(a, b);
+		while (ft_lstsize(*b) > 0)
+			sort_plus(a, b);
+		//put_a_up(a, check_position(a, lst_min(a)));
 	}
 }
+

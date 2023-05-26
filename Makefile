@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = push_swap.c push_swap_utils.c check_args.c moves.c swap.c push.c rotate.c r_rotate.c sort.c ft_printf.c ft_printf_utils.c libft_utils.c
+SRC = push_swap.c push_swap_utils.c check_args.c moves.c swap.c push.c rotate.c r_rotate.c sort.c ft_printf.c ft_printf_utils.c libft_utils.c sort_utils.c put_ups.c
 
 OBJ = $(SRC:.c=.o)
 
