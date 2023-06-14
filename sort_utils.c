@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 18:20:21 by gode-jes          #+#    #+#             */
-/*   Updated: 2023/05/25 19:32:13 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:44:22 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,30 @@ int	best_friend(t_list **a, int cont)
 	long int	dif;
 	long int	tmp;
 	int			bf;
+	int			flag;
 	t_list		*st_a;
 
 	st_a = *a;
 	dif = LONG_MAX;
+	flag = 0;
 	while (st_a)
 	{
 		tmp = (long int) *((st_a)->content) - cont;
 		if (tmp > 0 && tmp < dif)
 		{
 			dif = tmp;
-			bf = cont;
+			bf = *((st_a)->content);
+			flag = 1;
 		}
 		st_a = st_a->next;
 	}
+
+	if (!flag)
+		bf = cont;
 	return (bf);
 }
 
-int	st_cost(t_list *st, int n)
+int st_cost(t_list *st, int n)
 {
 	int	cost;
 	int	size;
@@ -55,9 +61,9 @@ int	st_cost(t_list *st, int n)
 
 int	calc_cost(t_list **a, t_list **b, int na, int nb)
 {
-	t_list	**st_a;
-	t_list	**st_b;
-	int		cost;
+	t_list		**st_a;
+	t_list		**st_b;
+	long int	cost;
 
 	st_a = a;
 	st_b = b;

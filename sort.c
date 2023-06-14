@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 14:44:34 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/25 19:21:25 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:27:50 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ void	sort3(t_list **stack)
 void	sort_init(t_list **a, t_list **b)
 {
 	int		med;
-	t_list	*st_a;
 
-	st_a = *a;
 	while (ft_lstsize(*a) > 3)
 	{
-		med = check_mean(st_a);
-		if (*((st_a)->content) <= med)
+		med = check_mean(a);
+		if (*(*a)->content < med)
 			pb(a, b);
 		else
 			ra(a);
@@ -69,29 +67,19 @@ void	sort_plus(t_list **a, t_list **b)
 		}
 		st_b = st_b->next;
 	}
-	printf("\nStack A\n\n");
-	print_list(*a);
-	printf("\nStack B\n\n");
-	print_list(*b);
-	printf("POS A: %d\n", pos_a);
-	printf("POS B: %d\n", pos_b);
 	put_a_up(a, pos_a);
 	put_b_up(b, pos_b);
-	printf("\nStack A\n\n");
-	print_list(*a);
-	printf("\nStack B\n\n");
-	print_list(*b);
 	pa(a, b);
 }
 
-void	final_sort(t_list **a, t_list **b)
+void	master_sort(t_list **a, t_list **b)
 {
 	if (!check_sort(a))
 	{
 		sort_init(a, b);
 		while (ft_lstsize(*b) > 0)
 			sort_plus(a, b);
-		//put_a_up(a, check_position(a, lst_min(a)));
+		put_a_up(a, check_position(a, lst_min(a)));
 	}
 }
 

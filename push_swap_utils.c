@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gode-jes <gode-jes@student.42.fr>          +#+  +:+       +#+        */
+/*   By: goncalogsilva <goncalogsilva@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 12:35:45 by goncalogsil       #+#    #+#             */
-/*   Updated: 2023/05/25 12:43:38 by gode-jes         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:21:42 by goncalogsil      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_list(t_list *list)
 	i = 1;
 	if (list == NULL)
 	{
-		printf("\nEmpty List\n");
+		printf("Empty List\n\n");
 		return ;
 	}
 	while (list != NULL)
@@ -30,16 +30,12 @@ void	print_list(t_list *list)
 	}
 }
 
-t_list	*stack_init(int n, char **args)
+t_list	*stack_init(int n, char **args, int *arg)
 {
 	t_list	*head;
 	t_list	*new;
-	int		*arg;
 	int		i;
 
-	arg = (int *) malloc((n - 1) * sizeof(int));
-	if (!arg)
-		return (NULL);
 	arg[0] = ft_atoi(args[n - 1]);
 	head = ft_lstnew(&arg[0]);
 	n--;
@@ -55,7 +51,7 @@ t_list	*stack_init(int n, char **args)
 	return (head);
 }
 
-int	check_mean(t_list *stack)
+int	check_mean(t_list **stack)
 {
 	long int	i;
 	int			cnt;
@@ -63,13 +59,24 @@ int	check_mean(t_list *stack)
 
 	i = 0;
 	cnt = 0;
-	aux = stack;
+	aux = *stack;
 	while (aux != NULL)
 	{
-		i += *(int *)(aux->content);
+		i += *(aux->content);
 		aux = aux->next;
 		cnt++;
 	}
 	i = i / cnt;
 	return (i);
+}
+
+void freeList(t_list *stack)
+{
+    t_list	*node;
+    while (stack != NULL)
+	{
+        node = stack;
+        stack = node->next;
+        free(node);
+    }
 }
